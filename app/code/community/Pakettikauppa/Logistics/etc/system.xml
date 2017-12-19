@@ -109,9 +109,9 @@
        </pakettikauppa>
     <carriers>
       <groups>
-        <pakettikauppa_pickuppoint translate="label">
-          <label>Pakettikauppa Pickup Point</label>
-          <sort_order>1</sort_order>
+        <posti_express_paketti translate="label">
+          <label>Posti - Express Paketti</label>
+          <sort_order>34</sort_order>
           <show_in_default>1</show_in_default>
           <show_in_website>1</show_in_website>
           <show_in_store>1</show_in_store>
@@ -135,37 +135,18 @@
             </title>
             <price translate="label">
               <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
               <frontend_type>text</frontend_type>
               <sort_order>21</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
-            <sallowspecific translate="label">
-              <label>For selected countries only</label>
-              <frontend_type>select</frontend_type>
-              <frontend_class>shipping-applicable-country</frontend_class>
-              <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
-              <sort_order>30</sort_order>
-              <show_in_default>1</show_in_default>
-              <show_in_website>1</show_in_website>
-              <show_in_store>1</show_in_store>
-            </sallowspecific>
-            <specificcountry translate="label">
-              <label>Ship to Specific Countries</label>
-              <frontend_type>multiselect</frontend_type>
-              <sort_order>31</sort_order>
-              <source_model>adminhtml/system_config_source_country</source_model>
-              <show_in_default>1</show_in_default>
-              <show_in_website>1</show_in_website>
-              <show_in_store>1</show_in_store>
-              <can_be_empty>1</can_be_empty>
-            </specificcountry>
           </fields>
-        </pakettikauppa_pickuppoint>
-        <pakettikauppa_homedelivery translate="label">
-          <label>Pakettikauppa Home Delivery</label>
-          <sort_order>1</sort_order>
+        </posti_express_paketti>
+        <posti_pikkupaketti translate="label">
+          <label>Posti - Pikkupaketti</label>
+          <sort_order>33</sort_order>
           <show_in_default>1</show_in_default>
           <show_in_website>1</show_in_website>
           <show_in_store>1</show_in_store>
@@ -189,34 +170,306 @@
             </title>
             <price translate="label">
               <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
               <frontend_type>text</frontend_type>
               <sort_order>21</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
-            <sallowspecific translate="label">
-              <label>For selected countries only</label>
-              <frontend_type>select</frontend_type>
-              <frontend_class>shipping-applicable-country</frontend_class>
-              <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
-              <sort_order>30</sort_order>
-              <show_in_default>1</show_in_default>
-              <show_in_website>1</show_in_website>
-              <show_in_store>1</show_in_store>
-            </sallowspecific>
-            <specificcountry translate="label">
-              <label>Ship to Specific Countries</label>
-              <frontend_type>multiselect</frontend_type>
-              <sort_order>31</sort_order>
-              <source_model>adminhtml/system_config_source_country</source_model>
-              <show_in_default>1</show_in_default>
-              <show_in_website>1</show_in_website>
-              <show_in_store>1</show_in_store>
-              <can_be_empty>1</can_be_empty>
-            </specificcountry>
           </fields>
-        </pakettikauppa_homedelivery>
+        </posti_pikkupaketti>
+        <posti_kotipaketti translate="label">
+          <label>Posti - Kotipaketti</label>
+          <sort_order>34</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <title translate="label">
+              <label>Shipping Method Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </title>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </posti_kotipaketti>
+        <matkahuolto_jakopaketti translate="label">
+          <label>Matkahuolto - Jakopaketti</label>
+          <sort_order>35</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <title translate="label">
+              <label>Shipping Method Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </title>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </matkahuolto_jakopaketti>
+        <matkahuolto_bussipaketti translate="label">
+          <label>Matkahuolto - Bussipaketti</label>
+          <sort_order>36</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <title translate="label">
+              <label>Shipping Method Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </title>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </matkahuolto_bussipaketti>
+        <gls_eurobusiness translate="label">
+          <label>GLS - Eurobusiness</label>
+          <sort_order>37</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <title translate="label">
+              <label>Shipping Method Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </title>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </gls_eurobusiness>
+        <gls_eurobusinesspallet translate="label">
+          <label>GLS - Eurobusinesspallet</label>
+          <sort_order>38</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <title translate="label">
+              <label>Shipping Method Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </title>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </gls_eurobusinesspallet>
+        <gls_express_paketti translate="label">
+          <label>GLS - Express</label>
+          <sort_order>39</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <title translate="label">
+              <label>Shipping Method Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </title>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </gls_express_paketti>
+        <posti_pickuppoint translate="label">
+          <label>(Pickup Point) Posti - Postipaketti</label>
+          <sort_order>29</sort_order>
+          <show_in_default>32</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </posti_pickuppoint>
+        <dbschenker_pickuppoint translate="label">
+          <label>(Pickup Point) DBSchekner Noutopistepaketti</label>
+          <sort_order>30</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </dbschenker_pickuppoint>
+        <matkahuolto_pickuppoint translate="label">
+          <label>(Pickup Point) Matkahuolto - Verkkopaketti</label>
+          <sort_order>30</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <price translate="label">
+              <label>Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+          </fields>
+        </matkahuolto_pickuppoint>
       </groups>
     </carriers>
   </sections>

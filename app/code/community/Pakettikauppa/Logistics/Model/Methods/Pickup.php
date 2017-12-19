@@ -31,9 +31,18 @@ implements Mage_Shipping_Model_Carrier_Interface
         if(count($methods)>0){
           $methods = Mage::helper('pakettikauppa_logistics')->sortPickupPointsByDistance($methods);
           foreach($methods as $method){
-            $description = '('.$method->provider.') '.$method->name.' | '.$method->street_address.', '.$method->city.', '.$method->postcode;
-            $name = $method->provider;
-            $result->append($this->_getCustomRate($name,$description,$method->pickup_point_id, 999));
+            $method_provider = str_replace(' ', '', strtolower($method->provider));
+            if(Mage::getStoreConfig('carriers/'.$method_provider.'_pickuppoint/active') == 1){
+              $description = '('.$method->provider.') '.$method->name.' | '.$method->street_address.', '.$method->city.', '.$method->postcode;
+              $name = $method->provider;
+              $price = Mage::getStoreConfig('carriers/'.$method_provider.'_pickuppoint/price');
+              if($price == '' || $price == null){
+                $price = 99999;
+              }else{
+                $price = floatval($price);
+              }
+              $result->append($this->_getCustomRate($name,$description,$method->pickup_point_id, $price));
+            }
           }
         }
         return $result;
@@ -62,7 +71,6 @@ implements Mage_Shipping_Model_Carrier_Interface
 
   protected function _getCustomRate($name, $description, $method_code, $price)
   {
-      $price = $this->getConfigData('price');
       /** @var Mage_Shipping_Model_Rate_Result_Method $rate */
       $rate = Mage::getModel('shipping/rate_result_method');
       $rate->setCarrier($this->_code);

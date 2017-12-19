@@ -25,8 +25,14 @@ class Pakettikauppa_Logistics_Helper_API extends Mage_Core_Helper_Abstract
   protected $key;
   protected $secret;
   protected $development;
+  protected $pickup_methods;
 
   function __construct(){
+    $this->pickup_methods = array(
+                               array('id' => 'posti', 'name' => 'Posti'),
+                               array('id' => 'matkahuolto', 'name' => 'Matkahuolto'),
+                               array('id' => 'dbschenker', 'name' => 'DB Schenker')
+                             );
     $this->development = Mage::getStoreConfig('pakettikauppa/api/development');
     if($this->development == 1){
       $this->client = new Client(array('test_mode' => true));
@@ -83,11 +89,20 @@ class Pakettikauppa_Logistics_Helper_API extends Mage_Core_Helper_Abstract
   }
 
   public function getPickupPoints($zip){
-    $client = $this->client;
-    // HARDCODED NEEDS TO BE PULLED FROM SYSTEM
-    $allowed = "Posti, DB Schenker, Matkahuolto";
-    $result = json_decode($client->searchPickupPointsByText($zip,$allowed,10));
-    return $result;
+    $allowed_methods = array();
+    foreach($this->pickup_methods as $method){
+      if(Mage::getStoreConfig('carriers/'.$method['id'].'_pickuppoint/active') == 1){
+        $allowed_methods[] = $method['name'];
+      }
+    }
+    if(count($allowed_methods)>0){
+      $allowed = implode(', ',$allowed_methods);
+      $client = $this->client;
+      $result = json_decode($client->searchPickupPointsByText($zip,$allowed,10));
+      return $result;
+    }else{
+      return null;
+    }
   }
 
   public function createShipment($order){

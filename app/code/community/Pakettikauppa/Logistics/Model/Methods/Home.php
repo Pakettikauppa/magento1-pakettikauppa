@@ -20,7 +20,21 @@ implements Mage_Shipping_Model_Carrier_Interface
       $methods = $this->_home_methods;
       if(count($methods)>0){
         foreach($methods as $method){
-          $result->append($this->_getCustomRate($method->service_provider,$method->name,$method->shipping_method_code, 999));
+          $method_provider = str_replace(' ', '',strtolower($method->service_provider)).'_'.str_replace(' ', '', strtolower($method->name));
+          $method_provider = str_replace('-','_',$method_provider);
+          if(Mage::getStoreConfig('carriers/'.$method_provider.'/active') == 1){
+            $price = Mage::getStoreConfig('carriers/'.$method_provider.'/price');
+            if($price == '' || $price == null){
+              $price = 99999;
+            }else{
+              $price = floatval($price);
+            }
+            $description = Mage::getStoreConfig('carriers/'.$method_provider.'/title');
+            if($description == '' || $description == null){
+              $description = $method->name;
+            }
+            $result->append($this->_getCustomRate($method->service_provider,$description,$method->shipping_method_code, $price));
+          }
         }
       }
       return $result;
@@ -48,7 +62,7 @@ implements Mage_Shipping_Model_Carrier_Interface
   {
 
       // EDIT SHIPPING PRICE HERE
-      $price = $this->getConfigData('price');
+      // $price = Mage::getStoreConfig('carriers/matkahuolto_pickuppoint/price');
 
       /** @var Mage_Shipping_Model_Rate_Result_Method $rate */
       $rate = Mage::getModel('shipping/rate_result_method');
