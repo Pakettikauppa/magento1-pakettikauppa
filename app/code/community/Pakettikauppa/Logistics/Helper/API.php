@@ -84,7 +84,9 @@ class Pakettikauppa_Logistics_Helper_API extends Mage_Core_Helper_Abstract
 
   public function getPickupPoints($zip){
     $client = $this->client;
-    $result = json_decode($client->searchPickupPoints($zip));
+    // HARDCODED NEEDS TO BE PULLED FROM SYSTEM
+    $allowed = "Posti, DB Schenker, Matkahuolto";
+    $result = json_decode($client->searchPickupPointsByText($zip,$allowed,10));
     return $result;
   }
 

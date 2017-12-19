@@ -1,45 +1,48 @@
-<div class="field pickuppoint-search">
-  <label for="pickuppoint-search"><?php echo $this->__('Choose another delivery Postcode');?></label>
-  <div class="input-box">
-    <input type="text" id="pickuppoint-search" name="pickuppoint-search" value="<?php echo Mage::helper('pakettikauppa_logistics')->getZip(); ?>" placeholder="<?php echo $this->__('Choose another delivery Postcode');?>" title="<?php echo $this->__('Postcode');?>" class="input-text">
+
+<?php if(Mage::helper('core')->isModuleOutputEnabled('Pakettikauppa_Logistics')){ ?>
+  <div class="field pickuppoint-search">
+    <label for="pickuppoint-search"><?php echo $this->__('Choose another delivery Postcode');?></label>
+    <div class="input-box">
+      <input type="text" id="pickuppoint-search" name="pickuppoint-search" value="<?php echo Mage::helper('pakettikauppa_logistics')->getZip(); ?>" placeholder="<?php echo $this->__('Choose another delivery Postcode');?>" title="<?php echo $this->__('Postcode');?>" class="input-text">
+    </div>
+    <button type="button pickuppoint-search" title="Continue" class="button pickuppoint_search" onclick="reloadShippingMethods()"><span><span><?php echo $this->__('Search');?></span></span></button>
+    <span class="please-wait" id="pickuppoint-search-please-wait" style="display: none;">
+    <img src="/skin/frontend/rwd/default/images/opc-ajax-loader.gif" alt="Loading next step..." title="Loading next step..." class="v-middle"><?php echo $this->__('Searching for pickup points...');?></span>
   </div>
-  <button type="button pickuppoint-search" title="Continue" class="button pickuppoint_search" onclick="reloadShippingMethods()"><span><span><?php echo $this->__('Search');?></span></span></button>
-  <span class="please-wait" id="pickuppoint-search-please-wait" style="display: none;">
-  <img src="/skin/frontend/rwd/default/images/opc-ajax-loader.gif" alt="Loading next step..." title="Loading next step..." class="v-middle"><?php echo $this->__('Searching for pickup points...');?></span>
-</div>
-<style>
-.sp-methods .method_title,
-.sp-methods .method_description{
-  display: block;
-  max-width: 80%;
-}
-.shipping_provider_logo_logistics{
-  max-width: 100px;
-  float: left;
-  height: auto;
-  margin-right: 10px;
-}
-.method_description{
-  float: left;
-}
-.method_price_logistics{
-  display: block;
-}
-</style>
-<script>
-function reloadShippingMethods(){
-  var zip = jQuery("#pickuppoint-search").val();
-  console.log(zip);
-  if(zip == ''){
-    alert('PLEASE INSERT ZIP CODE');
-  }else{
-    jQuery(".sp-methods").hide();
-    jQuery("#pickuppoint-search-please-wait").show();
-    jQuery.get("<?php echo $this->getUrl('checkout/onepage/reloadshippingmethods');?>?zip="+zip, function(data, status){
-      jQuery("#pickuppoint-search-please-wait").hide();
-      jQuery(".sp-methods").html(data.update_section.html);
-      jQuery(".sp-methods").show();
-    });
+  <style>
+  .sp-methods .method_title,
+  .sp-methods .method_description{
+    display: block;
+    max-width: 80%;
   }
-}
-</script>
+  .shipping_provider_logo_logistics{
+    max-width: 100px;
+    float: left;
+    height: auto;
+    margin-right: 10px;
+  }
+  .method_description{
+    float: left;
+  }
+  .method_price_logistics{
+    display: block;
+  }
+  </style>
+  <script>
+  function reloadShippingMethods(){
+    var zip = jQuery("#pickuppoint-search").val();
+    console.log(zip);
+    if(zip == ''){
+      alert('PLEASE INSERT ZIP CODE');
+    }else{
+      jQuery(".sp-methods").hide();
+      jQuery("#pickuppoint-search-please-wait").show();
+      jQuery.get("<?php echo $this->getUrl('checkout/onepage/reloadshippingmethods');?>?zip="+zip, function(data, status){
+        jQuery("#pickuppoint-search-please-wait").hide();
+        jQuery(".sp-methods").html(data.update_section.html);
+        jQuery(".sp-methods").show();
+      });
+    }
+  }
+  </script>
+<?php } ?>

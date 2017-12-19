@@ -12,6 +12,9 @@ implements Mage_Shipping_Model_Carrier_Interface
 
   public function collectRates(Mage_Shipping_Model_Rate_Request $request)
   {
+      if(!Mage::helper('core')->isModuleOutputEnabled('Pakettikauppa_Logistics')){
+        return false;
+      }
       /** @var Mage_Shipping_Model_Rate_Result $result */
       $result = Mage::getModel('shipping/rate_result');
       $methods = $this->_home_methods;
