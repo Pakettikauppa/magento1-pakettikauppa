@@ -29,6 +29,11 @@ implements Mage_Shipping_Model_Carrier_Interface
       if($this->getZip()){
         $methods = $this->_pickup_methods;
         if(count($methods)>0){
+          $cart_value = 0;
+          $items = Mage::getSingleton('checkout/cart')->getQuote()->getAllItems();
+          foreach($items as $item){
+            $cart_value = $cart_value + $item->getPrice();
+          }
           $methods = Mage::helper('pakettikauppa_logistics')->sortPickupPointsByDistance($methods);
           foreach($methods as $method){
             $method_provider = str_replace(' ', '', strtolower($method->provider));
@@ -40,6 +45,13 @@ implements Mage_Shipping_Model_Carrier_Interface
                 $price = 99999;
               }else{
                 $price = floatval($price);
+              }
+              $admin_cart_price_min = Mage::getStoreConfig('carriers/'.$method_provider.'_pickuppoint/cart_price');
+              $discount = Mage::getStoreConfig('carriers/'.$method_provider.'_pickuppoint/new_price');
+              if($admin_cart_price_min && $discount){
+                if(floatval($cart_value) >= floatval($admin_cart_price_min)){
+                  $price = floatval($discount);
+                }
               }
               $result->append($this->_getCustomRate($name,$description,$method->pickup_point_id, $price));
             }

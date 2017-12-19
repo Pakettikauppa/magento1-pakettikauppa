@@ -19,6 +19,11 @@ implements Mage_Shipping_Model_Carrier_Interface
       $result = Mage::getModel('shipping/rate_result');
       $methods = $this->_home_methods;
       if(count($methods)>0){
+        $cart_value = 0;
+        $items = Mage::getSingleton('checkout/cart')->getQuote()->getAllItems();
+        foreach($items as $item){
+          $cart_value = $cart_value + $item->getPrice();
+        }
         foreach($methods as $method){
           $method_provider = str_replace(' ', '',strtolower($method->service_provider)).'_'.str_replace(' ', '', strtolower($method->name));
           $method_provider = str_replace('-','_',$method_provider);
@@ -32,6 +37,13 @@ implements Mage_Shipping_Model_Carrier_Interface
             $description = Mage::getStoreConfig('carriers/'.$method_provider.'/title');
             if($description == '' || $description == null){
               $description = $method->name;
+            }
+            $admin_cart_price_min = Mage::getStoreConfig('carriers/'.$method_provider.'/cart_price');
+            $discount = Mage::getStoreConfig('carriers/'.$method_provider.'/new_price');
+            if($admin_cart_price_min && $discount){
+              if(floatval($cart_value) >= floatval($admin_cart_price_min)){
+                $price = floatval($discount);
+              }
             }
             $result->append($this->_getCustomRate($method->service_provider,$description,$method->shipping_method_code, $price));
           }

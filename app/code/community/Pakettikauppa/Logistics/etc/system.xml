@@ -142,6 +142,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </posti_express_paketti>
         <posti_pikkupaketti translate="label">
@@ -177,6 +195,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </posti_pikkupaketti>
         <posti_kotipaketti translate="label">
@@ -212,6 +248,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </posti_kotipaketti>
         <matkahuolto_jakopaketti translate="label">
@@ -247,6 +301,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </matkahuolto_jakopaketti>
         <matkahuolto_bussipaketti translate="label">
@@ -282,6 +354,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </matkahuolto_bussipaketti>
         <gls_eurobusiness translate="label">
@@ -317,6 +407,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </gls_eurobusiness>
         <gls_eurobusinesspallet translate="label">
@@ -352,6 +460,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </gls_eurobusinesspallet>
         <gls_express_paketti translate="label">
@@ -387,6 +513,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </gls_express_paketti>
         <posti_pickuppoint translate="label">
@@ -414,6 +558,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </posti_pickuppoint>
         <dbschenker_pickuppoint translate="label">
@@ -441,6 +603,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </dbschenker_pickuppoint>
         <matkahuolto_pickuppoint translate="label">
@@ -468,6 +648,24 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </price>
+            <cart_price translate="label">
+              <label>Minimum cart price for discount shipping price </label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </cart_price>
+            <new_price translate="label">
+              <label>Discount Price</label>
+              <validate>validate-zero-or-greater</validate>
+              <frontend_type>text</frontend_type>
+              <sort_order>33</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </new_price>
           </fields>
         </matkahuolto_pickuppoint>
       </groups>
