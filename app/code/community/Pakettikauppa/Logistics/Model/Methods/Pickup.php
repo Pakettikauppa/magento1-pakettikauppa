@@ -32,7 +32,7 @@ implements Mage_Shipping_Model_Carrier_Interface
           $cart_value = 0;
           $items = Mage::getSingleton('checkout/cart')->getQuote()->getAllItems();
           foreach($items as $item){
-            $cart_value = $cart_value + $item->getPrice();
+             $cart_value = $cart_value + ($item->getPrice() * $item->getQty());
           }
           $methods = Mage::helper('pakettikauppa_logistics')->sortPickupPointsByDistance($methods);
           foreach($methods as $method){
