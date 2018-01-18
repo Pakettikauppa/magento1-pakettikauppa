@@ -40,7 +40,7 @@ implements Mage_Shipping_Model_Carrier_Interface
             }
             $admin_cart_price_min = Mage::getStoreConfig('carriers/'.$method_provider.'/cart_price');
             $discount = Mage::getStoreConfig('carriers/'.$method_provider.'/new_price');
-            if($admin_cart_price_min && $discount){
+            if($admin_cart_price_min && $discount >= 0){
               if(floatval($cart_value) >= floatval($admin_cart_price_min)){
                 $price = floatval($discount);
               }
