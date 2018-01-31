@@ -7,7 +7,7 @@ class Client
     private $api_key;
     private $secret;
     private $base_uri;
-    private $user_agent = 'pk-client-lib/0.1';
+    private $user_agent = 'pk-client-lib/0.2';
 
     /**
      * Client constructor.
@@ -150,6 +150,10 @@ class Client
      */
     public function searchPickupPoints($postcode = null, $street_address = null, $country = null, $service_provider = null, $limit = 5)
     {
+        if ( ($postcode == null && $street_address == null) || (trim($postcode) == '' && trim($street_address) == '') ) {
+            return '[]';
+        }
+
         $post_params = array(
             'postcode'          => (string) $postcode,
             'address'           => (string) $street_address,
@@ -171,6 +175,10 @@ class Client
      */
     public function searchPickupPointsByText($query_text, $service_provider = null, $limit = 5)
     {
+        if ( $query_text == null || trim($query_text) == '' ) {
+            return '[]';
+        }
+
         $post_params = array(
             'query'             => (string) $query_text,
             'service_provider'  => (string) $service_provider,
