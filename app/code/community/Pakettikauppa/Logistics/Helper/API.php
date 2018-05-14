@@ -7,6 +7,7 @@ require_once(Mage::getBaseDir('lib') . '/pakettikauppa/Shipment/AdditionalServic
 require_once(Mage::getBaseDir('lib') . '/pakettikauppa/Shipment/Info.php');
 require_once(Mage::getBaseDir('lib') . '/pakettikauppa/Shipment/Parcel.php');
 require_once(Mage::getBaseDir('lib') . '/pakettikauppa/Client.php');
+require_once(Mage::getBaseDir('lib') . '/pakettikauppa/SimpleXMLElement.php');
 
 use Pakettikauppa\Shipment;
 use Pakettikauppa\Shipment\Sender;
