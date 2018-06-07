@@ -135,8 +135,15 @@ class Pakettikauppa_Logistics_Helper_API extends Mage_Core_Helper_Abstract
 
         $name = $firstname . ' ' . $middlename . ' ' . $lastname;
 
+        $companyName = $shipping_data->getData('company');
+
         $receiver = new Receiver();
-        $receiver->setName1($name);
+        if ($companyName == null) {
+            $receiver->setName1($name);
+        } else {
+            $receiver->setName1($companyName);
+            $receiver->setName2($name);
+        }
         $receiver->setAddr1($shipping_data->getData('street'));
         $receiver->setPostcode($shipping_data->getData('postcode'));
         $receiver->setCity($shipping_data->getData('city'));
