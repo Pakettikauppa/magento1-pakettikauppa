@@ -65,6 +65,21 @@ class Pakettikauppa_Logistics_Helper_API extends Mage_Core_Helper_Abstract
         $client = $this->client;
         $result = [];
         $methods = json_decode($client->listShippingMethods());
+
+        // ADDING ICONS FROM SERVER
+        $icons = array();
+        Mage::unregister('shipping-icons');
+        foreach($methods as $method){
+          if($method->icon){
+            $icons[$method->service_provider] = $method->icon;
+          }else{
+            $icons[$method->service_provider] = 'missing';
+          }
+        }
+        Mage::register('shipping-icons', $icons);
+        // ADDING ICONS FROM SERVER ENDS HERE
+
+
         if ($all == true) {
             return $methods;
         } else {

@@ -93,12 +93,12 @@ class Pakettikauppa_Logistics_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     public function getMethodImage($code,$provider){
-      if (strpos($code, 'pktkp_pickuppoint') !== false || strpos($code, 'pktkp_homedelivery') !== false) {
-        $latin_provider = iconv('UTF-8', 'ASCII//TRANSLIT', $provider);
-        $icon = strtolower(str_replace(' ', '_', $latin_provider));
-        return '<img class="shipping_provider_logo_logistics" src="/media/pakettikauppa/providers/'.$icon.'.png" alt="'.$provider.'"/>';
-      }else{
+
+      $icons = Mage::registry('shipping-icons');
+      if($icons[$provider] == 'missing'){
         return false;
+      }else{
+        return '<img class="shipping_provider_logo_logistics" src="'.$icons[$provider].'" alt="'.$provider.'"/>';
       }
     }
 
