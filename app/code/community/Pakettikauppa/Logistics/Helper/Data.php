@@ -172,4 +172,22 @@ class Pakettikauppa_Logistics_Helper_Data extends Mage_Core_Helper_Abstract
       }
       return $result;
     }
+
+    public function laskeViite($tmpId) {
+      // Painoarvot
+      $tmpMultip = array(7, 3, 1);
+      // Muutetaan parametri merkkijonoksi
+      $tmpStr = (string)$tmpId;
+      $tmpSum = 0;
+      $tmpIndex = 0;
+      for ($i=strlen($tmpStr)-1; $i>=0; $i--) {
+      $tmpSum += intval(substr($tmpStr, $i, 1)) * intval($tmpMultip[$tmpIndex %
+      3]);
+      $tmpIndex++;
+      }
+
+      // Laskettua summaa vastaava seuraava täysi kymmenluku:
+      $nextTen = ceil(intval($tmpSum)/10)*10;
+      return $tmpStr . (string)(abs($nextTen-$tmpSum));
+    }
   }

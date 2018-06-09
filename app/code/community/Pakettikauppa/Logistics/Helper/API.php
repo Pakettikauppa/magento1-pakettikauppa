@@ -190,6 +190,18 @@ class Pakettikauppa_Logistics_Helper_API extends Mage_Core_Helper_Abstract
             $shipment->addAdditionalService($additional_service);
         }
 
+        $payment = $order->getPayment()->getMethodInstance()->getCode();
+        if($payment == 'cashondelivery'){
+          $additional_service_cod = new AdditionalService();
+          $additional_service_cod->setServiceCode(3101);
+          $additional_service_cod->addSpecifier('amount', $order->getGrandTotal());
+          $additional_service_cod->addSpecifier('account', Mage::getStoreConfig('pakettikauppa/sender/iban', $store));
+          $additional_service_cod->addSpecifier('codbic', Mage::getStoreConfig('pakettikauppa/sender/codbic', $store));
+          $reference_number = Mage::helper('pakettikauppa_logistics')->laskeViite($order->getIncrementId());
+          $additional_service_cod->addSpecifier('reference', $reference_number);
+          $shipment->addAdditionalService($additional_service_cod);
+        }
+
         $client = $this->client;
 
         try {
