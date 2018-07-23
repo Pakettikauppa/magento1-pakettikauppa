@@ -52,6 +52,34 @@
                        </secret>
                    </fields>
                </api>
+               <settings translate="label" module="pakettikauppa_logistics">
+                 <label>Sorting Options</label>
+                 <frontend_type>text</frontend_type>
+                 <sort_order>200</sort_order>
+                 <show_in_default>1</show_in_default>
+                 <show_in_website>1</show_in_website>
+                 <show_in_store>1</show_in_store>
+                 <fields>
+                   <sorting_pickup translate="label">
+                       <label>Sort pickup points by:</label>
+                       <frontend_type>select</frontend_type>
+                       <source_model>pakettikauppa_logistics/Selectpickup</source_model>
+                       <sort_order>10</sort_order>
+                       <show_in_default>1</show_in_default>
+                       <show_in_website>1</show_in_website>
+                       <show_in_store>1</show_in_store>
+                   </sorting_pickup>
+                   <sorting_home translate="label">
+                       <label>Sort home delivery methods by:</label>
+                       <frontend_type>select</frontend_type>
+                       <source_model>pakettikauppa_logistics/Selecthome</source_model>
+                       <sort_order>11</sort_order>
+                       <show_in_default>1</show_in_default>
+                       <show_in_website>1</show_in_website>
+                       <show_in_store>1</show_in_store>
+                   </sorting_home>
+                 </fields>
+               </settings>
                <sender translate="label" module="pakettikauppa_logistics">
                    <label>Store information</label>
                    <frontend_type>text</frontend_type>
@@ -176,6 +204,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </posti_express_paketti>
         <posti_pikkupaketti translate="label">
@@ -229,6 +266,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </posti_pikkupaketti>
         <posti_kotipaketti translate="label">
@@ -282,6 +328,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </posti_kotipaketti>
         <matkahuolto_jakopaketti translate="label">
@@ -335,6 +390,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </matkahuolto_jakopaketti>
         <matkahuolto_bussipaketti translate="label">
@@ -388,6 +452,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </matkahuolto_bussipaketti>
         <gls_eurobusiness translate="label">
@@ -441,6 +514,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </gls_eurobusiness>
         <gls_eurobusinesspallet translate="label">
@@ -494,9 +576,18 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </gls_eurobusinesspallet>
-        <gls_express_paketti translate="label">
+        <gls_express translate="label">
           <label>GLS - Express</label>
           <sort_order>39</sort_order>
           <show_in_default>1</show_in_default>
@@ -547,8 +638,17 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
-        </gls_express_paketti>
+        </gls_express>
         <posti_pickuppoint translate="label">
           <label>(Pickup Point) Posti - Postipaketti</label>
           <sort_order>29</sort_order>
@@ -592,6 +692,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </posti_pickuppoint>
         <dbschenker_pickuppoint translate="label">
@@ -637,6 +746,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </dbschenker_pickuppoint>
         <matkahuolto_pickuppoint translate="label">
@@ -682,6 +800,15 @@
               <show_in_website>1</show_in_website>
               <show_in_store>1</show_in_store>
             </new_price>
+            <sort_order>
+               <label>Sort Order:</label>
+               <validate>validate-zero-or-greater</validate>
+               <frontend_type>text</frontend_type>
+               <sort_order>40</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>1</show_in_website>
+               <show_in_store>1</show_in_store>
+            </sort_order>
           </fields>
         </matkahuolto_pickuppoint>
       </groups>

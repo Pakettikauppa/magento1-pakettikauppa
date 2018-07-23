@@ -53,7 +53,8 @@ implements Mage_Shipping_Model_Carrier_Interface
                   $price = floatval($discount);
                 }
               }
-              $result->append($this->_getCustomRate($name,$description,$method->pickup_point_id, $price));
+              $order = Mage::getStoreConfig('carriers/'.$method_provider.'_pickuppoint/sort_order');
+              $result->append($this->_getCustomRate($name,$description,$method->pickup_point_id, $price, $order, $method->distance));
             }
           }
         }
@@ -81,7 +82,7 @@ implements Mage_Shipping_Model_Carrier_Interface
   }
 
 
-  protected function _getCustomRate($name, $description, $method_code, $price)
+  protected function _getCustomRate($name, $description, $method_code, $price, $order, $distance)
   {
       /** @var Mage_Shipping_Model_Rate_Result_Method $rate */
       $rate = Mage::getModel('shipping/rate_result_method');
@@ -92,6 +93,8 @@ implements Mage_Shipping_Model_Carrier_Interface
       $rate->setMethodDescription($name);
       $rate->setPrice($price);
       $rate->setCost(0);
+      $rate->setSortOrder($order);
+      $rate->setDistance($distance);
       return $rate;
   }
 

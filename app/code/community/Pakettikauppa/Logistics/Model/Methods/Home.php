@@ -45,7 +45,8 @@ implements Mage_Shipping_Model_Carrier_Interface
                 $price = floatval($discount);
               }
             }
-            $result->append($this->_getCustomRate($method->service_provider,$description,$method->shipping_method_code, $price));
+            $order = Mage::getStoreConfig('carriers/'.$method_provider.'/sort_order');
+            $result->append($this->_getCustomRate($method->service_provider,$description,$method->shipping_method_code, $price, $order));
           }
         }
       }
@@ -70,7 +71,7 @@ implements Mage_Shipping_Model_Carrier_Interface
   }
 
 
-  protected function _getCustomRate($name, $description, $method_code, $price)
+  protected function _getCustomRate($name, $description, $method_code, $price, $order)
   {
 
       // EDIT SHIPPING PRICE HERE
@@ -85,6 +86,7 @@ implements Mage_Shipping_Model_Carrier_Interface
       $rate->setMethodDescription($description);
       $rate->setPrice($price);
       $rate->setCost(0);
+      $rate->setSortOrder($order);
       return $rate;
   }
 
