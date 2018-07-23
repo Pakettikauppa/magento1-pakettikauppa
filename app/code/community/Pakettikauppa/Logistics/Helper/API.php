@@ -212,7 +212,8 @@ class Pakettikauppa_Logistics_Helper_API extends Mage_Core_Helper_Abstract
                         mkdir($dir);
                     }
                     file_put_contents($dir . '/' . $shipment->getTrackingCode() . '.pdf', base64_decode($shipment->getPdf()));
-                    return (string)$shipment->getTrackingCode();
+                    // return (string)$shipment->getTrackingCode();
+                    return array('number' =>  $shipment->getTrackingCode(), 'label' => base64_decode($shipment->getPdf()));
                 }
             }
         } catch (\Exception $ex) {

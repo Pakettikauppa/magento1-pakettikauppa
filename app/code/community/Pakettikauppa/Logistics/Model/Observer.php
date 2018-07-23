@@ -25,8 +25,9 @@ class Pakettikauppa_Logistics_Model_Observer {
         $track = Mage::getModel('sales/order_shipment_track')
                         ->setCarrierCode($code)
                         ->setTitle($name)
-                        ->setNumber($tracking_number);
+                        ->setNumber($tracking_number['number']);
         $shipment->addTrack($track);
+        $shipment->setShippingLabel($tracking_number['label']);
       }
     }
    }
