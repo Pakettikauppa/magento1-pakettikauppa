@@ -3,7 +3,8 @@ class Pakettikauppa_Logistics_Model_Observer {
   public function salesOrderShipmentSaveBefore($observer){
     $shipment = $observer->getEvent()->getShipment();
     $shipping_method = $shipment->getOrder()->getData('shipping_method');
-    if(Mage::helper('pakettikauppa_logistics')->isPakettikauppa($shipping_method)){
+
+      if(Mage::helper('pakettikauppa_logistics')->isPakettikauppa($shipping_method)){
       if(count($shipment->getAllTracks())==0){
 
         $code = Mage::helper('pakettikauppa_logistics')->getMethod($shipping_method);
@@ -33,11 +34,16 @@ class Pakettikauppa_Logistics_Model_Observer {
    }
 
    public function salesOrderSaveBefore($observer){
-
-
        $order = $observer->getEvent()->getData('order');
+
        $quote = Mage::getSingleton('checkout/session')->getQuote();
+
        $shipping_method_code = $quote->getShippingAddress()->getShippingMethod();
+
+       $klarnaHelper = Mage::helper('klarnaCheckout');
+       if($klarnaHelper != null && $klarnaHelper->isKcoOrder($order)) {
+           $shipping_method_code = $order->getShippingMethod();
+       }
 
 
        if(Mage::helper('pakettikauppa_logistics')->isPakettikauppa($shipping_method_code)){
@@ -49,7 +55,12 @@ class Pakettikauppa_Logistics_Model_Observer {
          // PICKUP POINT
          if($method == 'pktkp_pickuppoint'){
            $zip = Mage::helper('pakettikauppa_logistics')->getZip();
-           $pickup_methods = Mage::helper('pakettikauppa_logistics/API')->getPickupPoints($zip);
+
+           if(empty($zip)) {
+             $zip = $order->getShippingAddress()->getPostcode();
+           }
+
+             $pickup_methods = Mage::helper('pakettikauppa_logistics/API')->getPickupPoints($zip);
            foreach($pickup_methods as $pickup_method){
              if('pktkp_pickuppoint_'.$pickup_method->pickup_point_id == $shipping_method_code){
                 $order->setData('pickup_point_provider', $pickup_method->provider);
