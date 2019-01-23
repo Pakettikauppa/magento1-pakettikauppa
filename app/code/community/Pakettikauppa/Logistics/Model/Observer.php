@@ -40,8 +40,7 @@ class Pakettikauppa_Logistics_Model_Observer {
 
        $shipping_method_code = $quote->getShippingAddress()->getShippingMethod();
 
-       $klarnaHelper = Mage::helper('klarnaCheckout');
-       if(!empty($klarnaHelper) && method_exists($klarnaHelper, 'isKcoOrder') && $klarnaHelper->isKcoOrder($order)) {
+       if(empty($shipping_method_code)) {
            $shipping_method_code = $order->getShippingMethod();
        }
 
