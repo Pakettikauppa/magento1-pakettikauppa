@@ -16,7 +16,7 @@
     echo '<tbody>';
     foreach($tracking as $track){
           $status_text = Mage::helper('pakettikauppa_logistics')->getShipmentStatusText($track->status_code);
-          $date = date('d.m.Y H:i:s', strtotime($track->message_created));
+          $date = date('d.m.Y H:i:s', strtotime($track->event_timestamp));
           echo '<tr>';
           echo '<td>'.$date.'</td>';
           echo '<td>'.$track->post_office.'</td>';
