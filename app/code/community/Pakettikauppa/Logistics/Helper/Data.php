@@ -157,20 +157,16 @@ class Pakettikauppa_Logistics_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     public function getPickupPointServiceCode($data, $provider){
-      $result = 0;
-      foreach($data as $d){
-        if($d->service_provider == $provider){
-          if(count($d->additional_services)>0){
-           foreach($d->additional_services as $service){
-              if($service->service_code == '2106'){
-                $result = $d->shipping_method_code;
-                break;
-              }
-           }
-          }
+        switch($provider) {
+            case 'Posti':
+                return 2103;
+            case 'Matkahuolto':
+                return 90080;
+            case 'DB Schenker':
+                return 80010;
+            default:
+                return 0;
         }
-      }
-      return $result;
     }
 
     public function laskeViite($tmpId) {
